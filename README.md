@@ -11,4 +11,3 @@ This document defines formatting and style rules for HTML, CSS, and JavaScript. 
 - Separation of implementation and a rule
 - Universal Rules that are not dependent on anything 
 - Communicate: consistent verbiage throughout the company
-- test
