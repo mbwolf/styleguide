@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Front-End Styleguide</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/prettify.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+
+    <script src="js/prettify.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+
+  <body onload="prettyPrint()">
+    <div id="nav-bg"></div>
+    <div id="nav">
+      <ul>
+        <li class="nav-block">
+          <a href="#global-start">Global Style Rules</a>
+          <ul class="level2">
+            <li><a href="#spaces">Spaces vs. Tabs</a></li>
+          </ul>
+        </li>
+        <li class="nav-block">
+          <a href="#html-start">HTML Style Rules</a>
+          <ul class="level2">
+            <li><a href="#formatting">General formatting</a></li>
+            <li><a href="#caps">Capitalization</a></li>
+            <li><a href="#whitespace">Trailing whitespace</a></li>
+            <li><a href="#entities">Entity references</a></li>
+          </ul>
+        </li>
+        <li class="nav-block">
+          <a href="#css-start">CSS Formatting Rules</a>
+          <ul class="level2">
+
+            <li><a href="#indentation">Block content indentation</a></li>
+            <li><a href="#order">Declaration order</a></li>
+            <li><a href="#name-stops">Property name stops</a></li>
+            <li><a href="#declaration-stops">Declaration stops</a></li>
+            <li><a href="#type-selectors">Type selectors</a></li>
+            <li><a href="#separation">Selector separation</a></li>
+            <li><a href="#css-whitespace">Whitespace</a></li>
+            <li><a href="#rule-separation">Rule separation</a></li>
+            <li><a href="#units">0 and units</a></li>
+            <li><a href="#hexadecimal">Hexadecimal notation</a></li>
+          </ul>
+        </li>
+        <li class="nav-block">
+          <a href="#html-start">JavaScript Rules</a>
+          <ul class="level2">
+            <li><a href="#semicolons">Semicolons</a></li>
+            <li><a href="#strict-equals">Always use Strict Equals</a></li>
+            <li><a href="#js-naming">Naming Conventions</a></li>
+          </ul>
+        </li>
+        <li class="nav-block">
+          <a href="#html-start">Developer Tools</a>
+          <ul class="level2">
+            <li><a href="#">Coming Soon...</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div id="content-wrap">
+      <div id="content">
+        <h1>Front-End Developer Styleguide</h1>
+
+        <p>This document defines formatting and style rules for HTML, CSS, and JavaScript. It aims at improving code quality and consistency throughout all of our projects. All code in any code-base should look like a single person wrote it, no matter how many people contributed. In order to achieve this, the following coding standards must be followed and strictly enforced.</p>
+
+        <a name="global-start"></a>
+        <h2>Global Style Rules</h2>
+
+        <div class="section first">
+          <a name="spaces"></a>
+          <h3>Spaces vs. Tabs</h3>
+          <p>Always indent by two spaces, never mix tabs with spaces.</p>
+
+          <div class="note">
+            <p>Consistency throughout all projects, just do it!</p>
+          </div>
+        </div>
+
+        <a name="html-start"></a>
+        <h2>HTML Style Rules</h2>
+
+        <div class="section first">
+          <a name="formatting"></a>
+          <h3>General formatting</h3>
+
+          <p>Use a new line for every block, list, or table element, and indent every such child element.</p>
+
+           <div class="note">
+            <p>Makes code easier to read and maintain</p>
+          </div>
+
+          <pre class="prettyprint">
+            <code>
+    &lt;blockquote&gt;
+      &lt;p&gt;&lt;em&gt;Space&lt;/em&gt;, the final frontier.&lt;/p&gt;
+    &lt;/blockquote&gt;
+
+    &lt;ul&gt;
+      &lt;li&gt;Moe&lt;/li&gt;
+      &lt;li&gt;Larry&lt;/li&gt;
+      &lt;li&gt;Curly&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;table&gt;
+      &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;th scope=&quot;col&quot;&gt;Income&lt;/th&gt;
+          &lt;th scope=&quot;col&quot;&gt;Taxes&lt;/th&gt;
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;$ 5.00&lt;/td&gt;
+          &lt;td&gt;$ 4.50&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+            </code></pre>
+        </div>
+
+        <div class="section">
+          <a name="caps"></a>
+          <h3>Capitalization</h3>
+          <p>All Element names, attributes, attribute values, selectors, properties, and property values (with the exception of strings) should be lowercase.</p>
+
+          <div class="note">
+            <p>Consistency throughout all projects</p>
+          </div>
+
+          <pre class="wrong two-line">
+            <code>
+    &lt;!-- Not recommended --&gt;
+    &lt;A HREF=&quot;/&quot;&gt;Home&lt;/A&gt;
+            </code>
+          </pre>
+
+          <pre class="correct two-line">
+            <code>
+    &lt;!-- Recommended --&gt;
+    &lt;img src=&quot;google.png&quot; alt=&quot;Google&quot;&gt;
+            </code></pre>
+        </div>
+
+        <div class="section">
+          <a name="whitespace"></a>
+          <h3>Trailing whitespace</h3>
+          <p>Remove trailing white spaces.</p>
+
+          <p><em>Tip: configure your editor to "show invisibles". This will allow you to eliminate end of line whitespace, eliminate unintended blank line whitespace, and avoid polluting commits.</em></p>
+
+          <div class="note">
+            <p>Trailing white spaces are unnecessary and can complicate diffs</p>
+          </div>
+
+          <pre class="wrong two-line">
+            <code>
+    &lt;!-- Not recommended --&gt;
+    &lt;p&gt;What? &lt;/p&gt;
+            </code>
+          </pre>
+
+          <pre class="correct two-line">
+            <code>
+    &lt;!-- Recommended --&gt;
+    &lt;p&gt;Yes please.&lt;/p&gt;
+            </code></pre>
+        </div>
+
+        <div class="section">
+          <a name="entities"></a>
+          <h3>Entity references</h3>
+          <p>For all special characters use their numeric character reference. A list of all the entities can be found at <a href="http://www.html-entities.org" target="_blank">html-entities.org</a></p>
+
+          <div class="note">
+            <p>To be consistent, also helps with cross browser issues</p>
+          </div>
+        </div>
+
+        <a name="css-start"></a>
+        <h2>CSS Formatting Rules</h2>
+
+        <div class="section">
+          <a name="indentation"></a>
+          <h3>Block content indentation</h3>
+          <p>Indent all block content to reflect hierarchy and improve understanding.</p>
+
+          <div class="note">
+            <p>Easier to read and helps reflect hierarchy</p>
+          </div>
+
+          <pre class="correct">
+            <code>
+    @media (max-width: 960px) {
+
+      .wrapper {
+        color: #999;
+        width: 100%;
+      }
+
+    }
+            </code></pre>
+        </div>
+
+        <div class="section">
+          <a name="order"></a>
+          <h3>Declaration order</h3>
+          <p>Put declarations in alphabetical order in order to achieve consistent code in a way that is easy to remember and maintain. Ignore vendor-specific prefixes for sorting purposes.</p>
+
+          <div class="note">
+            <p>Helps with consistency, also easy to remember and maintain</p>
+          </div>
+
+          <pre class="correct">
+            <code>
+    #page-container {
+      background: #ccc;
+      -webkit-border-radius: 5px;
+         -moz-border-radius: 5px;
+              border-radius: 5px;
+      border: 1px solid #e3e3e3;
+      color: #202020;
+      margin: 0 auto;
+      text-align: left;
+      z-index: 1;
+    }
+            </code></pre>
+        </div>
+
+        <div class="section">
+          <a name="name-stops"></a>
+          <h3>Property name stops</h3>
+          <p>Always add a space after the colon</p>
+
+          <div class="note">
+            <p>Makes code easier to read</p>
+          </div>
+
+          <pre class="wrong">
+            <code>
+    &lt;!-- Not recommended --&gt;
+    .title {
+      font-weight:bold;
+    }
+            </code></pre>
+
+          <pre class="correct">
+            <code>
+    &lt;!-- Recommended --&gt;
+    .title {
+      font-weight: bold;
+    }
+            </code></pre>
+        </div>
+
+        <div class="section">
+          <a name="declaration-stops"></a>
+          <h3>Declaration stops</h3>
+          <p>End every declaration with a semicolon</p>
+
+          <div class="note">
+            <p>Consistency throughout all projects</p>
+          </div>
+
+          <pre class="wrong">
+            <code>
+    &lt;!-- Not recommended --&gt;
+    .test {
+      display: block;
+      height: 100px
+    }
+            </code></pre>
+
+          <pre class="correct">
+            <code>
+    &lt;!-- Recommended --&gt;
+    .test {
+      display: block;
+      height: 100px;
+    }
+            </code></pre>
+        </div>
+
+        <div class="section">
+          <a name="type-selectors"></a>
+          <h3>Type selectors</h3>
+          <p>Do not use element names in conjunction with IDs or classes.</p>
+
+          <div class="note">
+            <p>Makes styles to reliant on structure</p>
+          </div>
+
+          <pre class="wrong">
+            <code>
+    &lt;!-- Not recommended --&gt;
+    ul#example { ... }
+    div.error { ... }
+            </code></pre>
+
+          <pre class="correct">
+            <code>
+    &lt;!-- Recommended --&gt;
+    #example { ... }
+    .error { ... }
+            </code></pre>
+        </div>
+
+        <div class="section">
+          <a name="separation"></a>
+          <h3>Selector and declaration separation</h3>
+          <p>Always separate selectors and declarations by new lines. Also, LESS compiling issues</p>
+
+          <div class="note">
+            <p>Easier to read, also can cause LESS compiling issues when all on one line</p>
+          </div>
+
+          <pre class="wrong">
+            <code>
+    &lt;!-- Not recommended --&gt;
+    a:hover, a:focus, a:visted {
+      color: #c60;
+      text-decoration: underline;
+    }
+            </code></pre>
+
+          <pre class="correct">
+            <code>
+    &lt;!-- Recommended --&gt;
+    a:hover,
+    a:focus,
+    a:visted {
+      color: #c60;
+      text-decoration: underline;
+    }
+            </code></pre>
+        </div>
+
+        <div class="section">
+          <a name="rule-separation"></a>
+          <h3>Rule separation</h3>
+          <p>Always separate rules by new lines. Makes code easier to read.</p>
+
+          <div class="note">
+            <p>Makes code easier to read and maintain</p>
+          </div>
+
+          <pre class="correct">
+            <code>
+    body {
+      background: #fff;
+    }
+
+    #container {
+      color: #4a4a4a;
+      width: 70%;
+    }
+            </code></pre>
+        </div>
+
+        <div class="section">
+          <a name="units"></a>
+          <h3>0 and units</h3>
+          <p>Omit unit specification after “0” values unless they are required. Omit leading “0”s in values. e.g., font-size: .8em</p>
+
+          <div class="note">
+            <p>For code consistency across all projects</p>
+          </div>
+
+          <pre class="wrong">
+            <code>
+    &lt;!-- Not recommended --&gt;
+    #content-wrap {
+      box-shadow: 0px 0px 5px rgba(255,255,255,0.5);
+      margin: 0px 15px 0px 20px;
+    }
+            </code></pre>
+
+          <pre class="correct">
+            <code>
+    &lt;!-- Recommended --&gt;
+    #content-wrap {
+      box-shadow: 0 0 5px rgba(255,255,255,.5);
+      margin: 0 15px 0 20px;
+    }
+            </code></pre>
+        </div>
+
+        <div class="section">
+          <a name="hexadecimal"></a>
+          <h3>Hexadecimal notation</h3>
+          <p>Always use lowercase hex values, e.g., #aaa. Also, use 3 character hexadecimal notation where possible.</p>
+
+          <div class="note">
+            <p>Consistency amongst projects, also Hex colors can help optimize style sheets to their smallest size</p>
+          </div>
+
+          <pre class="wrong">
+            <code>
+    &lt;!-- Not recommended --&gt;
+    #header {
+      background: white;
+      color: #cccccc;
+    }
+            </code></pre>
+
+          <pre class="correct">
+            <code>
+    &lt;!-- Recommended --&gt;
+    #header {
+      background: #fff;
+      color: #ccc;
+    }
+            </code></pre>
+        </div>
+
+        <a name="js-start"></a>
+        <h2>JavaScript Rules</h2>
+
+        <div class="section">
+          <a name="semicolons"></a>
+          <h3>Semicolons</h3>
+          <p>End all statements with a semicolon.</p>
+
+          <div class="note">
+            <ul>
+              <li>Consistency amongst projects</li>
+              <li>Minifying JavaScript without semicolons can be a little risky and may produce unpredictable results</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="section">
+          <a name="strict-equals"></a>
+          <h3>Always use Strict Equals</h3>
+          <p>End all statements with a semicolon.</p>
+
+          <div class="note">
+            <ul>
+              <li>Avoid type coercion which can cause unpredictable results</li>
+              <li>This helps to maintain data type integrity throughout your code</li>
+              <li>In general, it's just safer</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="section">
+          <a name="js-naming"></a>
+          <h3>Naming Conventions</h3>
+          <p>The variable name of a jQuery object, always start with a dollar sign ("$")</p>
+
+          <div class="note">
+            <p>Identifies the variable to be a jQuery object. It's good to make this separation as jQuery objects come with a different set of properties.</p>
+          </div>
+        </div>
+
+      </div> <!-- /end #content -->
+      <a href="#top" id="top-btn">Back to top</a>
+    </div> <!-- /end #content-wrap -->
+
+    <!-- javascript
+    ================================================== -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+    <script src="js/app.js"></script>
+
+  </body>
+</html>
