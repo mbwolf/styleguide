@@ -1,5 +1,3 @@
-# Front-End Styleguide
-
 ## About
 This document defines formatting and style rules for HTML, CSS, and JavaScript. It aims at improving code quality and consistency throughout all of our projects. All code in any code-base should look like a single person wrote it, no matter how many people contributed. In order to achieve this, the following coding standards must be followed and strictly enforced.
 
