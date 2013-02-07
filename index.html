@@ -50,22 +50,16 @@
             <li><a href="#separation">Selector separation</a></li>
             <li><a href="#css-whitespace">Whitespace</a></li>
             <li><a href="#rule-separation">Rule separation</a></li>
-            <li><a href="#units">0 and units</a></li>
+            <li><a href="#naming">Naming Conventions</a></li>
             <li><a href="#hexadecimal">Hexadecimal notation</a></li>
           </ul>
         </li>
         <li class="nav-block">
-          <a href="#html-start">JavaScript Rules</a>
+          <a href="#js-start">JavaScript Rules</a>
           <ul class="level2">
             <li><a href="#semicolons">Semicolons</a></li>
             <li><a href="#strict-equals">Always use Strict Equals</a></li>
             <li><a href="#js-naming">Naming Conventions</a></li>
-          </ul>
-        </li>
-        <li class="nav-block">
-          <a href="#html-start">Developer Tools</a>
-          <ul class="level2">
-            <li><a href="#">Coming Soon...</a></li>
           </ul>
         </li>
       </ul>
@@ -75,7 +69,7 @@
       <div id="content">
         <h1>Front-End Developer Styleguide</h1>
 
-        <p>This document defines formatting and style rules for HTML, CSS, and JavaScript. It aims at improving code quality and consistency throughout all of our projects. All code in any code-base should look like a single person wrote it, no matter how many people contributed. In order to achieve this, the following coding standards must be followed and strictly enforced.</p>
+        <p>This document defines formatting and style rules for HTML, CSS, and JavaScript. It aims at improving code quality and consistency throughout all of our projects. All code in any code-base should look like a single person wrote it, no matter how many people contributed. In order to achieve this, the following coding standards must be followed by all developers here at <strong>melt</strong>media.</p>
 
         <a name="global-start"></a>
         <h2>Global Style Rules</h2>
@@ -86,7 +80,11 @@
           <p>Always indent by two spaces, never mix tabs with spaces.</p>
 
           <div class="note">
-            <p>Consistency throughout all projects, just do it!</p>
+            <ul>
+              <li>For easier diffs</li>
+              <li>Legacy code uses spaces</li>
+              <li>Consistency throughout all projects</li>
+            </ul>
           </div>
         </div>
 
@@ -97,10 +95,10 @@
           <a name="formatting"></a>
           <h3>General formatting</h3>
 
-          <p>Use a new line for every block, list, or table element, and indent every such child element.</p>
+          <p>Use a new line for every block, list, or table element, and indent every such child element. Also, all tags have to be closed.</p>
 
            <div class="note">
-            <p>Makes code easier to read and maintain</p>
+            <p>Code readability and consistency</p>
           </div>
 
           <pre class="prettyprint">
@@ -143,39 +141,47 @@
 
           <pre class="wrong two-line">
             <code>
-    &lt;!-- Not recommended --&gt;
+    &lt;!-- BAD --&gt;
     &lt;A HREF=&quot;/&quot;&gt;Home&lt;/A&gt;
             </code>
           </pre>
 
           <pre class="correct two-line">
             <code>
-    &lt;!-- Recommended --&gt;
-    &lt;img src=&quot;google.png&quot; alt=&quot;Google&quot;&gt;
+    &lt;!-- GOOD --&gt;
+    &lt;a href=&quot;/&quot;&gt;Home&lt;/a&gt;
             </code></pre>
         </div>
 
         <div class="section">
           <a name="whitespace"></a>
           <h3>Trailing whitespace</h3>
-          <p>Remove trailing white spaces.</p>
+          <p>Remove all trailing white spaces inside of html tags. Also, always leave a blank line at the end of your file.</p>
 
-          <p><em>Tip: configure your editor to "show invisibles". This will allow you to eliminate end of line whitespace, eliminate unintended blank line whitespace, and avoid polluting commits.</em></p>
+          <p><em>Tip: configure your editor to "show invisibles". This will allow you to eliminate end of line whitespace, eliminate unintended blank line whitespace, and avoid polluting commits. Below are links to view instructions for various text editors:</em></p>
+
+          <h4>Resources</h4>
+
+          <ul>
+            <li>Sublime Text 2: <a class="arrow" href="#">http://www.tbd.com</a></li>
+            <li>Textmate: <a class="arrow" href="#">http://www.tbd.com</a></li>
+            <li>Coda 2: <a class="arrow" href="#">http://www.tbd.com</a></li>
+          </ul>
 
           <div class="note">
-            <p>Trailing white spaces are unnecessary and can complicate diffs</p>
+            <p>Trailing white spaces can complicate diffs</p>
           </div>
 
           <pre class="wrong two-line">
             <code>
-    &lt;!-- Not recommended --&gt;
+    &lt;!-- BAD --&gt;
     &lt;p&gt;What? &lt;/p&gt;
             </code>
           </pre>
 
           <pre class="correct two-line">
             <code>
-    &lt;!-- Recommended --&gt;
+    &lt;!-- GOOD --&gt;
     &lt;p&gt;Yes please.&lt;/p&gt;
             </code></pre>
         </div>
@@ -183,7 +189,7 @@
         <div class="section">
           <a name="entities"></a>
           <h3>Entity references</h3>
-          <p>For all special characters use their numeric character reference. A list of all the entities can be found at <a href="http://www.html-entities.org" target="_blank">html-entities.org</a></p>
+          <p>For all special characters use their numeric character reference. A list of all the entities can be found at <a class="arrow" href="http://www.html-entities.org" target="_blank">html-entities.org</a></p>
 
           <div class="note">
             <p>To be consistent, also helps with cross browser issues</p>
@@ -216,9 +222,40 @@
         </div>
 
         <div class="section">
+          <a name="indentation"></a>
+          <h3>Commenting</h3>
+          <p>Be sure to comment your CSS. Use section separators to help organize the document. The goal is to make our code as self documented as possible.</p>
+
+          <div class="note">
+            <ul>
+              <li>Code organization</li>
+              <li>Maintainability</li>
+              <li>Consistency throughout projects</li>
+            </ul>
+          </div>
+
+          <pre class="correct">
+            <code>
+    /* --- [ GLOBAL HEADER ] --- */
+
+      #header {
+        margin: 0 auto;
+        width: 980px;
+      }
+
+      /* This is a comment describing what the css
+        below is doing and why it's that way. */
+      .subnav {
+        float: left;
+        position: relative;
+      }
+            </code></pre>
+        </div>
+
+        <div class="section">
           <a name="order"></a>
           <h3>Declaration order</h3>
-          <p>Put declarations in alphabetical order in order to achieve consistent code in a way that is easy to remember and maintain. Ignore vendor-specific prefixes for sorting purposes.</p>
+          <p>Put declarations in alphabetical order. Ignore vendor-specific prefixes for sorting purposes.</p>
 
           <div class="note">
             <p>Helps with consistency, also easy to remember and maintain</p>
@@ -229,13 +266,41 @@
     #page-container {
       background: #ccc;
       -webkit-border-radius: 5px;
-         -moz-border-radius: 5px;
-              border-radius: 5px;
+      -moz-border-radius: 5px;
+      border-radius: 5px;
       border: 1px solid #e3e3e3;
       color: #202020;
       margin: 0 auto;
       text-align: left;
       z-index: 1;
+    }
+            </code></pre>
+        </div>
+
+        <div class="section">
+          <a name="order"></a>
+          <h3>Vendor Prefix Order</h3>
+          <p>Vendor prefixes should always come before the actual property. The last property should be the actual property because it will be based entirely on the spec, it will match other browsers implementations, and will be the only supported version as time goes on as vendor prefixes are removed.</p>
+
+          <h4>Resources</h4>
+          <ul>
+            <li><a class="arrow" href="http://css-tricks.com/ordering-css3-properties/" target="_blank">Ordering CSS3 Properties</a></li>
+          </ul>
+
+          <div class="note">
+            <ul>
+              <li>Consistency amongst projects</li>
+              <li>Future proof your CSS</li>
+            </ul>
+          </div>
+
+          <pre class="correct">
+            <code>
+    .modal {
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      border-radius: 5px;
+      border: 1px solid #e3e3e3;
     }
             </code></pre>
         </div>
@@ -251,7 +316,7 @@
 
           <pre class="wrong">
             <code>
-    &lt;!-- Not recommended --&gt;
+    &lt;!-- BAD --&gt;
     .title {
       font-weight:bold;
     }
@@ -259,7 +324,7 @@
 
           <pre class="correct">
             <code>
-    &lt;!-- Recommended --&gt;
+    &lt;!-- GOOD --&gt;
     .title {
       font-weight: bold;
     }
@@ -277,7 +342,7 @@
 
           <pre class="wrong">
             <code>
-    &lt;!-- Not recommended --&gt;
+    &lt;!-- BAD --&gt;
     .test {
       display: block;
       height: 100px
@@ -286,7 +351,7 @@
 
           <pre class="correct">
             <code>
-    &lt;!-- Recommended --&gt;
+    &lt;!-- GOOD --&gt;
     .test {
       display: block;
       height: 100px;
@@ -297,7 +362,14 @@
         <div class="section">
           <a name="type-selectors"></a>
           <h3>Type selectors</h3>
-          <p>Do not use element names in conjunction with IDs or classes.</p>
+          <p>Unless necessary (for example with helper classes), do not use element names in conjunction with IDs or classes. Avoiding unnecessary ancestor selectors is useful for performance reasons as well as makes your CSS more scalable.</p>
+
+          <h4>Resources</h4>
+
+          <ul>
+            <li>Selector Performance: <a class="arrow" href="http://www.stevesouders.com/blog/2009/06/18/simplifying-css-selectors/" target="_blank">Simplifying CSS Selectors</a></li>
+            <li>Object Oriented CSS: <a class="arrow" href="http://coding.smashingmagazine.com/2011/12/12/an-introduction-to-object-oriented-css-oocss/" target="_blank">Introduction to Object Oriented CSS</a></li>
+          </ul>
 
           <div class="note">
             <p>Makes styles to reliant on structure</p>
@@ -305,14 +377,14 @@
 
           <pre class="wrong">
             <code>
-    &lt;!-- Not recommended --&gt;
+    &lt;!-- BAD --&gt;
     ul#example { ... }
     div.error { ... }
             </code></pre>
 
           <pre class="correct">
             <code>
-    &lt;!-- Recommended --&gt;
+    &lt;!-- GOOD --&gt;
     #example { ... }
     .error { ... }
             </code></pre>
@@ -321,15 +393,18 @@
         <div class="section">
           <a name="separation"></a>
           <h3>Selector and declaration separation</h3>
-          <p>Always separate selectors and declarations by new lines. Also, LESS compiling issues</p>
+          <p>Always separate selectors and declarations by new lines.</p>
 
           <div class="note">
-            <p>Easier to read, also can cause LESS compiling issues when all on one line</p>
+            <ul>
+              <li>Code Readability</li>
+              <li>can cause compiling issues for some preprocessors</li>
+            </ul>
           </div>
 
           <pre class="wrong">
             <code>
-    &lt;!-- Not recommended --&gt;
+    &lt;!-- BAD --&gt;
     a:hover, a:focus, a:visted {
       color: #c60;
       text-decoration: underline;
@@ -338,7 +413,7 @@
 
           <pre class="correct">
             <code>
-    &lt;!-- Recommended --&gt;
+    &lt;!-- GOOD --&gt;
     a:hover,
     a:focus,
     a:visted {
@@ -372,8 +447,8 @@
 
         <div class="section">
           <a name="units"></a>
-          <h3>0 and units</h3>
-          <p>Omit unit specification after “0” values unless they are required. Omit leading “0”s in values. e.g., font-size: .8em</p>
+          <h3>Naming Conventions</h3>
+          <p>Separate words in IDs and class names by a hyphen and all names should be lowercase.</p>
 
           <div class="note">
             <p>For code consistency across all projects</p>
@@ -381,20 +456,18 @@
 
           <pre class="wrong">
             <code>
-    &lt;!-- Not recommended --&gt;
-    #content-wrap {
-      box-shadow: 0px 0px 5px rgba(255,255,255,0.5);
-      margin: 0px 15px 0px 20px;
-    }
+    &lt;!-- BAD --&gt;
+    .content_wrap {}
+    #pageWrap {}
+    #Footer
             </code></pre>
 
           <pre class="correct">
             <code>
-    &lt;!-- Recommended --&gt;
-    #content-wrap {
-      box-shadow: 0 0 5px rgba(255,255,255,.5);
-      margin: 0 15px 0 20px;
-    }
+    &lt;!-- GOOD --&gt;
+    .content-wrap {}
+    #page-wrap {}
+    #footer {}
             </code></pre>
         </div>
 
@@ -409,7 +482,7 @@
 
           <pre class="wrong">
             <code>
-    &lt;!-- Not recommended --&gt;
+    &lt;!-- BAD --&gt;
     #header {
       background: white;
       color: #cccccc;
@@ -418,7 +491,7 @@
 
           <pre class="correct">
             <code>
-    &lt;!-- Recommended --&gt;
+    &lt;!-- GOOD --&gt;
     #header {
       background: #fff;
       color: #ccc;
