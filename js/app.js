@@ -1,49 +1,64 @@
 (function($){
 
+  var
+    windowHeight,
+    isAnimating = false;
+
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  // Detects height of nav, if nav is taller than the window
+  // change positioning to absolute so it will scroll with window
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  function updateNavPositioning(){
+    if(windowHeight < 900){
+      $("#nav").css("position","absolute");
+    } else {
+      $("#nav").css("position","fixed");
+    }
+  }
+
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  // Animates window scrolling when user clicks a specific section
+  //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  function jumpToSection(hash, target){
+
+    if(isAnimating) return;
+
+    isAnimating = true;
+
+    $('html,body').animate({
+      scrollTop: target.offset().top
+    }, 800);
+
+    setTimeout(function(){
+      location.href = hash;
+      isAnimating = false;
+    }, 800);
+
+  }
+
+
+  // DOM Ready
   $(function(){
 
-    var
-      $topBtn = $("#top-btn"),
-      windowHeight = $(window).height(),
-      windowPosition;
+    var $navItem = $("#nav a");
 
-    $(window).scroll(function(){
-      windowPosition = $(window).scrollTop();
-      //updateTopBtn(windowPosition);
-    });
+    windowHeight = $(window).height();
 
     $(window).on("resize", function(){
       windowHeight = $(window).height();
       updateNavPositioning();
     });
 
-    // var updateTopBtn = function(windowPosition){
-    //   if(windowPosition > 50){
-    //     $topBtn.animate({
-    //       bottom: 0,
-    //       opacity: 1
-    //     }, 400);
-    //   } else if(windowPosition === 0) {
-    //     $topBtn.animate({
-    //       bottom: -40,
-    //       opacity: 0
-    //     }, 400);
-    //   }
-    // };
-
-    var updateNavPositioning = function(){
-      if(windowHeight < 950){
-        $("#nav").css("position","absolute");
-      } else {
-        $("#nav").css("position","fixed");
-      }
-    }
-
-    $topBtn.on("click", function(e){
+    $navItem.on("click", function(e){
       e.preventDefault();
-      $('html,body').animate({
-        scrollTop: $("body").offset().top
-      }, 800);
+
+      var
+        selectionHash = $(this).attr("href"),
+        selection = selectionHash.substr(1),
+        $target = $("a[name=" + selection + "]");
+
+      jumpToSection(selectionHash, $target);
+
     });
 
   });

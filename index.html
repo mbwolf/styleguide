@@ -43,12 +43,13 @@
           <ul class="level2">
 
             <li><a href="#indentation">Block content indentation</a></li>
+            <li><a href="#commenting">Commenting</a></li>
             <li><a href="#order">Declaration order</a></li>
+            <li><a href="#prefixes">Vendor Prefix Order</a></li>
             <li><a href="#name-stops">Property name stops</a></li>
             <li><a href="#declaration-stops">Declaration stops</a></li>
             <li><a href="#type-selectors">Type selectors</a></li>
             <li><a href="#separation">Selector separation</a></li>
-            <li><a href="#css-whitespace">Whitespace</a></li>
             <li><a href="#rule-separation">Rule separation</a></li>
             <li><a href="#naming">Naming Conventions</a></li>
             <li><a href="#hexadecimal">Hexadecimal notation</a></li>
@@ -189,10 +190,20 @@
         <div class="section">
           <a name="entities"></a>
           <h3>Entity references</h3>
-          <p>For all special characters use their numeric character reference. A list of all the entities can be found at <a class="arrow" href="http://www.html-entities.org" target="_blank">html-entities.org</a></p>
+          <p>For all special characters use their numeric character reference.</p>
+
+          <h4>Resources</h4>
+
+          <ul>
+            <li><a class="arrow" href="http://www.html-entities.org" target="_blank">html-entities.org</a></li>
+            <li><a class="arrow" href="https://github.com/johntrimble/bentity" target="_blank">Bentity Tool</a></li>
+          </ul>
 
           <div class="note">
-            <p>To be consistent, also helps with cross browser issues</p>
+            <ul>
+              <li>Consistent rendering across all browsers</li>
+              <li>Consistency throughout all projects</li>
+            </ul>
           </div>
         </div>
 
@@ -222,7 +233,7 @@
         </div>
 
         <div class="section">
-          <a name="indentation"></a>
+          <a name="commenting"></a>
           <h3>Commenting</h3>
           <p>Be sure to comment your CSS. Use section separators to help organize the document. The goal is to make our code as self documented as possible.</p>
 
@@ -278,7 +289,7 @@
         </div>
 
         <div class="section">
-          <a name="order"></a>
+          <a name="prefixes"></a>
           <h3>Vendor Prefix Order</h3>
           <p>Vendor prefixes should always come before the actual property. The last property should be the actual property because it will be based entirely on the spec, it will match other browsers implementations, and will be the only supported version as time goes on as vendor prefixes are removed.</p>
 
@@ -446,7 +457,7 @@
         </div>
 
         <div class="section">
-          <a name="units"></a>
+          <a name="naming"></a>
           <h3>Naming Conventions</h3>
           <p>Separate words in IDs and class names by a hyphen and all names should be lowercase.</p>
 

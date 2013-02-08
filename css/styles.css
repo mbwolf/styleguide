@@ -170,6 +170,8 @@ li {
     background: url(../images/icon-arrow.png) no-repeat right -16px;
     padding-right: 22px;
     -webkit-transition: padding .2s ease-in-out;
+    -moz-transition: padding .2s ease-in-out;
+    tranisitoin:  padding .2s ease-in-out;
   }
 
   .arrow:hover {
@@ -200,22 +202,22 @@ li {
     color:#909090;
   }
 
-  pre.two-line {
+  .two-line {
     height:90px;
   }
 
-  pre.three-line {
+  .three-line {
     height:110px;
   }
 
-  pre.wrong {
+  .wrong {
     color:red;
   }
 
-  pre.correct {
+  .correct {
     color:green;
   }
 
-  pre.prettyprint {
+  .prettyprint {
     border:1px solid #CCC;
   }
