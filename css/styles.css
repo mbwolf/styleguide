@@ -59,6 +59,7 @@ p {
 
 li {
   color:#666;
+  list-style:square;
   margin-bottom:5px;
 }
 
@@ -182,8 +183,8 @@ li {
 
   .note {
     background-color: #ffff99;
-    padding: 5px 10px;
-    margin: 7px 0 30px;
+    padding: 5px;
+    margin: 5px 0 15px;
     display: inline-block;
     width:100%;
   }
@@ -195,7 +196,15 @@ li {
   }
 
   .note ul {
-    margin:20px 10px 20px 30px;
+    background:url(../images/icon-bulb.png) no-repeat left center;
+    margin: 0 0 0 20px;
+    padding: 20px 10px 20px 70px;
+  }
+
+  .note p {
+    background:url(../images/icon-bulb-small.png) no-repeat left center;
+    margin-left: 10px;
+    padding: 5px 10px 5px 30px;
   }
 
   em {
