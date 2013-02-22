@@ -440,6 +440,19 @@
               <li>Minifying JavaScript without semicolons can be a little risky and may produce unpredictable results</li>
             </ul>
           </div>
+          <pre class="wrong">
+            <code>
+    &lt;!-- No semicolons --&gt;
+    var $form = $("register-form")
+    $form.submit(onFormSubmit)
+            </code></pre>
+
+          <pre class="correct">
+            <code>
+    &lt;!-- Recommended --&gt;
+    var $form = $("register-form");
+    $form.submit(onFormSubmit);
+            </code></pre>
         </div>
 
         <div class="section">
@@ -454,6 +467,23 @@
               <li>In general, it's just safer</li>
             </ul>
           </div>
+          <pre class="wrong">
+             <code>
+     &lt;!-- Type converting equals --&gt;
+     function checkZero(value) {
+       return value==0;
+     }
+     checkZero("0");
+             </code></pre>
+
+           <pre class="correct">
+             <code>
+     &lt;!-- Strict equals --&gt;
+     function checkZero(value) {
+       return value===0;
+     }
+     checkZero("0");
+             </code></pre>
         </div>
 
         <div class="section">
@@ -464,6 +494,23 @@
           <div class="note">
             <p>Identifies the variable to be a jQuery object. It's good to make this separation as jQuery objects come with a different set of properties.</p>
           </div>
+          <pre class="wrong">
+             <code>
+     &lt;!-- Not starting with $  --&gt;
+     var slides = $(".slide");
+     slides.each(function(i, slide) {
+       slide.css("left", i*100);
+     });
+             </code></pre>
+
+           <pre class="correct">
+             <code>
+     &lt;!-- Starting with $ --&gt;
+     var $slides = $(".slide");
+     $slides.each(function(i, $slide) {
+       $slide.css("left", i*100);
+     });
+             </code></pre>
         </div>
 
       </div> <!-- /end #content -->
