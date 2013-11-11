@@ -1,7 +1,5 @@
 (function($){
 
-/* @todo: This is a test */
-
   var
     windowHeight,
     isAnimating = false;
